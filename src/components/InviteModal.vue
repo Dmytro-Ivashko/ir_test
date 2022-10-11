@@ -199,9 +199,13 @@ export default {
       this.setLocalStorageGuestList();
     },
     sendGuestList() {
+      this.close();
+      if(this.guestList.length) setTimeout(() => {
+        // without toast library
+        alert('Guest list success sended')
+      }, 500); 
       this.guestList = [];
       localStorage.removeItem('emails-list');
-      this.close();
     },
   },
 };
